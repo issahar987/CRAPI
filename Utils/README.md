@@ -1,0 +1,1 @@
+This folder is for functions/files that may be useful for all challanges
