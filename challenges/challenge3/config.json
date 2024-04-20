@@ -1,0 +1,9 @@
+{
+    "request_pass_reset_url": "http://34.76.82.192:8888/identity/api/auth/forget-password",
+    "target_url": "http://34.76.82.192:8888/identity/api/auth/v2/check-otp",
+    "emails": ["test123@test123.pl"],
+    "password": "Test123$%",
+    "start_otp": 0,
+    "end_otp": 9999
+  }
+  
