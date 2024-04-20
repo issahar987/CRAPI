@@ -1,0 +1,17 @@
+{
+    "target_url": "http://34.76.82.192:8888/workshop/api/shop/orders",
+    "login_url": "http://34.76.82.192:8888/identity/api/auth/login",
+    "logins": [{
+        "email": "test123@test123.pl",
+        "password": "Test123$%"
+    }],
+    "buy_payload": {
+        "product_id": 1,
+        "quantity": 1
+    },
+    "payload": {
+            "status": "returned",
+            "quantity": 200
+        }
+}
+  
