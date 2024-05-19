@@ -57,6 +57,7 @@ func GetVehicleIDs(url, token string) []string {
 		if vehicleId != "" {
 			ids = append(ids, vehicleId)
 		}
+		// fmt.Println(p.AuthorID)
 	}
 
 	return ids

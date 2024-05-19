@@ -1,0 +1,8 @@
+{
+    "mechanic_code":"TRAC_JHN",
+    "problem_details":"i hab problm\nsent from iphon",
+    "vin":"0BGYM51AQIJ823086",
+    "mechanic_api":"https://localhost:8443/workshop/api/mechanic/receive_report",
+    "repeat_request_if_failed":false,
+    "number_of_repeats":1
+}
