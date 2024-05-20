@@ -1,0 +1,6 @@
+{
+    "login_url": "https://crapi.bobaklabs.com:8443/identity/api/auth/login",
+    "target_url": "https://crapi.bobaklabs.com:8443/workshop/api/merchant/contact_mechanic",
+    "email": "finger@fingermail.com",
+    "password": "oKHbsd0GmUZpb03?"
+}
