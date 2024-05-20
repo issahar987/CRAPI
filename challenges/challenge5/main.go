@@ -44,6 +44,6 @@ func main() {
 
 	url := config.TargetURL
 
-	UploadVideo("videos/laoganma.mp4", token, url)
 	UploadVideo("videos/vidio.mp4", token, url)
+	UploadVideo("videos/laoganma.mp4", token, url)
 }
