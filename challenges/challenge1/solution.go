@@ -6,14 +6,34 @@ import (
 	"io"
 	"log"
 	"net/http"
+
+	configurator "github.com/tomek-skrond/crapiconfigurator"
 )
+
+type Post struct {
+	ID        string        `json:"id"`
+	Title     string        `json:"title"`
+	Content   string        `json:"content"`
+	Author    Author        `json:"author"`
+	Comments  []interface{} `json:"comments"`
+	AuthorID  int           `json:"authorid"`
+	CreatedAt string        `json:"CreatedAt"`
+}
+
+type Author struct {
+	Nickname      string `json:"nickname"`
+	Email         string `json:"email"`
+	VehicleID     string `json:"vehicleid"`
+	ProfilePicURL string `json:"profile_pic_url"`
+	CreatedAt     string `json:"created_at"`
+}
 
 func GetPayload(token string, ids []string) {
 	for _, id := range ids {
 		url := fmt.Sprintf("http://crapi.bobaklabs.com:8888/identity/api/v2/vehicle/%s/location", id)
 
 		req, _ := http.NewRequest("GET", url, nil)
-		req = ConfigureRequest(req, token)
+		req = configurator.ConfigureRequest(req, token)
 
 		res, err := http.DefaultClient.Do(req)
 		if err != nil {
@@ -33,7 +53,7 @@ func GetPayload(token string, ids []string) {
 func GetVehicleIDs(url, token string) []string {
 	req, _ := http.NewRequest("GET", url, nil)
 
-	req = ConfigureRequest(req, token)
+	req = configurator.ConfigureRequest(req, token)
 
 	res, err := http.DefaultClient.Do(req)
 	if err != nil {

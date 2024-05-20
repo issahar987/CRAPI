@@ -4,6 +4,8 @@ import (
 	"fmt"
 	"log"
 	"os"
+
+	configurator "github.com/tomek-skrond/crapiconfigurator"
 )
 
 func main() {
@@ -12,12 +14,12 @@ func main() {
 	if err != nil {
 		log.Fatalln(err)
 	}
-	config, err := GetConfig(pwd + "/config.json")
+	config, err := configurator.GetConfig(pwd + "/config.json")
 	if err != nil {
 		log.Fatalln(err)
 	}
 
-	token := GetJWTToken(config.LoginURL, config.Email, config.Password)
+	token := configurator.GetJWTToken(config.LoginURL, config.Email, config.Password)
 
 	url := config.TargetURL
 

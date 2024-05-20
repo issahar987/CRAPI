@@ -24,23 +24,26 @@ package main
 import (
 	"log"
 	"os"
+
+	configurator "github.com/tomek-skrond/crapiconfigurator"
 )
 
 func main() {
 
 	pwd, _ := os.Getwd()
-	config, err := GetConfig(pwd + "/config.json")
+	config, err := configurator.GetConfig(pwd + "/config.json")
 	if err != nil {
 		log.Fatalln(err)
 	}
 
 	// get jwt token
-	token := GetJWTToken(config.LoginURL, config.Email, config.Password)
+	token := configurator.GetJWTToken(config.LoginURL, config.Email, config.Password)
 	if token == "" {
 		log.Fatalln("token empty")
 	}
 
 	url := config.TargetURL
 
-	UploadVideo("laoganma.mp4", token, url)
+	UploadVideo("videos/laoganma.mp4", token, url)
+	UploadVideo("videos/vidio.mp4", token, url)
 }
