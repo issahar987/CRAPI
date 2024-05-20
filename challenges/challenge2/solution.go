@@ -4,10 +4,12 @@ import (
 	"fmt"
 	"log"
 	"net/http"
+
+	configurator "github.com/tomek-skrond/crapiconfigurator"
 )
 
 func GetAllReportsByID(idCount int, token, target_url string) {
-	client := CustomHttpClient()
+	client := configurator.CustomHttpClient()
 
 	for i := 0; i <= idCount; i++ {
 		// fmt.Printf("Checking ID=%d\n", i)
@@ -17,7 +19,7 @@ func GetAllReportsByID(idCount int, token, target_url string) {
 			log.Fatalln(err)
 		}
 
-		req = ConfigureRequest(req, token)
+		req = configurator.ConfigureRequest(req, token)
 
 		resp, err := client.Do(req)
 		if err != nil {
@@ -25,7 +27,7 @@ func GetAllReportsByID(idCount int, token, target_url string) {
 		}
 		defer resp.Body.Close()
 
-		body, _ := ReadBody(resp)
+		body, _ := configurator.ReadBody(resp)
 		if resp.StatusCode != 200 {
 			continue
 		}
