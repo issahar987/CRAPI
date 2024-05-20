@@ -1,4 +1,4 @@
-module challenge-8
+module challenge-11
 
 go 1.22.2
 
