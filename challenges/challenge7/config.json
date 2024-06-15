@@ -1,6 +1,6 @@
 {
     "login_url": "https://crapi.bobaklabs.com:8443/identity/api/auth/login",
-    "target_url": "https://crapi.bobaklabs.com:8443/identity/api/v2/user/videos",
+    "target_url": "https://crapi.bobaklabs.com:8443/identity/api/v2/admin/videos",
     "email": "finger@fingermail.com",
     "password": "Finger!123"
 }

@@ -1,6 +1,6 @@
 # CRAPI (Automated Exploits)
 
-Automate exploits for the CRAPI application, available at [http://34.76.82.192:8888](http://34.76.82.192:8888).
+Automate exploits for the CRAPI application, available at [this site](http://crapi.bobaklabs.com:8888).
 
 ## Rules for Working Together
 
