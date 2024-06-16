@@ -13,8 +13,8 @@ import (
 )
 
 const (
-	CONV_PARAMS = "-v codec h22222222222"
-	VIDEO_NAME  = "o.mp4"
+	CONV_PARAMS = "-v codec h2"
+	VIDEO_NAME  = "nicevideo.mp4"
 )
 
 func main() {
@@ -39,7 +39,7 @@ func main() {
 		log.Fatalln("wrong video id (should be over 0)")
 	}
 
-	fmt.Println(token)
+	// fmt.Println(token)
 	UnauthorizedVideoParameterEdition(config.TargetURL, token, *idFlag)
 }
 
@@ -108,7 +108,7 @@ func UnauthorizedVideoParameterEdition(targeturl, token string, id int) {
 	if err != nil {
 		log.Fatalln(err)
 	}
-
+	fmt.Println("Video parameters after edit: ")
 	fmt.Println(string(modifiedJSON))
 }
 

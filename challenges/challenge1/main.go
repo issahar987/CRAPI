@@ -26,5 +26,5 @@ func main() {
 	ids := GetVehicleIDs(url, token)
 
 	fmt.Println("Retrieved vehicle location data:")
-	GetPayload(token, ids)
+	GetPayload(url, token, ids)
 }
