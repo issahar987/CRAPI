@@ -7,29 +7,25 @@ import (
 	"fmt"
 	"log"
 	"net/http"
-	"os"
 
-	configurator "github.com/tomek-skrond/crapiconfigurator"
+	configurator "github.com/tomek-skrond/crapiconfigurator/v2"
 )
 
 const (
-	CONV_PARAMS = "-v codec h2"
+	CONV_PARAMS = "-v codec h21234"
 	VIDEO_NAME  = "nicevideo.mp4"
 )
 
 func main() {
-	pwd, _ := os.Getwd()
-	config, err := configurator.GetConfig(pwd + "/config.json")
+	config, err := configurator.GetConfig("../challenge-automation/config.yaml")
 	if err != nil {
 		log.Fatalln(err)
 	}
-	// to check video after you can use also:
-	// curl -X GET -H "Authorization: Bearer $valid_token" http://crapi.bobaklabs.com:8888/identity/api/v2/user/videos/$videoId > file.out
-	// get jwt token
-	token := configurator.GetJWTToken(config.LoginURL, config.Email, config.Password)
-	if token == "" {
-		log.Fatalln("token empty")
-	}
+
+	loginurl := fmt.Sprintf("%s%s", config.Hostname, config.LoginURL)
+	token := configurator.GetJWTToken(loginurl, config.Email, config.Password)
+
+	url := fmt.Sprintf("%s%s", config.Hostname, config.TargetURL)
 
 	idFlag := flag.Int("id", 1, "ID of the video that is to be edited")
 
@@ -40,7 +36,7 @@ func main() {
 	}
 
 	// fmt.Println(token)
-	UnauthorizedVideoParameterEdition(config.TargetURL, token, *idFlag)
+	UnauthorizedVideoParameterEdition(url, token, *idFlag)
 }
 
 func PrintBefore(method, url, token string) {

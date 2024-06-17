@@ -1,0 +1,81 @@
+global:
+  hostname: "http://crapi.bobaklabs.com:8888"
+  email: "finger@fingermail.com"
+  password: "Finger!123"
+  login_url: "/identity/api/auth/login"
+challenges:
+  challenge1:
+    id: 1
+    path: "../challenge1/"
+    command: "go run ."
+    label: "Challenge 1 - Access details of another user’s vehicle"
+  challenge2:
+    id: 2
+    path: "../challenge2/"
+    command: "go run ."
+    label: "Challenge 2 - Access mechanic reports of other users"
+  # challenge3:
+  #   id: 21
+  #   path: "../challenge3/"
+  #   command: "go run ."
+  #   label: "Challenge 3"
+  challenge4:
+    id: 3
+    path: "../challenge4/"
+    command: "go run ."
+    label: "Challenge 4 - Find an API endpoint that leaks sensitive information of other users"
+  challenge5:
+    id: 4
+    path: "../challenge5/"
+    command: "go run ."
+    label: "Challenge 5 - Find an API endpoint that leaks an internal property of a video"
+  # challenge6:
+  #   id: 100
+  #   path: "../challenge6/"
+  #   command: "python3 main.py"
+  #   label: "Challenge 6"
+  challenge7:
+    id: 5
+    path: "../challenge7/"
+    command: "go run . -id 1"
+    label: "Challenge 7 - Delete a video of another user"
+  challenge8:
+    id: 6
+    path: "../challenge8/"
+    command: "go run ."
+    label: "Challenge 8 - Get an item for free"
+  # challenge9:
+  #   id: 6
+  #   path: "../challenge9/"
+  #   command: "go run ."
+  #   label: "Challenge 9"
+  challenge10:
+    id: 7
+    path: "../challenge10/"
+    command: "go run . -id 55"
+    label: "Challenge 10 - Update internal video properties"
+  challenge11:
+    id: 8
+    path: "../challenge11/"
+    command: "go run ."
+    label: "Challenge 11 - Make crAPI send an HTTP call to “www.google.com” and return the HTTP response."
+  # challenge12:
+  #   id: 8
+  #   path: "../challenge12/"
+  #   command: "go run ."
+  #   label: "Challenge 12"
+  challenge13:
+    id: 9
+    path: "../challenge13/"
+    command: "go run ."
+    label: "Challenge 13 - SQL Injection"
+  challenge14:
+    id: 10
+    path: "../challenge14/"
+    command: "go run ."
+    label: "Challenge 14 - View all orders"
+  # challenge15:
+  #   id: 10
+  #   path: "../challenge15/"
+  #   command: "go run ."
+  #   label: "Challenge 15"

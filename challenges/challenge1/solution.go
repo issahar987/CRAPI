@@ -8,7 +8,7 @@ import (
 	"net/http"
 	"regexp"
 
-	configurator "github.com/tomek-skrond/crapiconfigurator"
+	configurator "github.com/tomek-skrond/crapiconfigurator/v2"
 )
 
 type Post struct {
