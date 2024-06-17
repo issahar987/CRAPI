@@ -37,7 +37,7 @@ challenges:
   challenge7:
     id: 5
     path: "../challenge7/"
-    command: "go run . -id 1"
+    command: "go run . -id 55"
     label: "Challenge 7 - Delete a video of another user"
   challenge8:
     id: 6
