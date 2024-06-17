@@ -14,6 +14,11 @@ challenges:
     path: "../challenge2/"
     command: "go run ."
     label: "Challenge 2 - Access mechanic reports of other users"
+  # challenge3:
+  #   id: 21
+  #   path: "../challenge3/"
+  #   command: "go run ."
+  #   label: "Challenge 3"
   challenge4:
     id: 3
     path: "../challenge4/"
@@ -24,6 +29,11 @@ challenges:
     path: "../challenge5/"
     command: "go run ."
     label: "Challenge 5 - Find an API endpoint that leaks an internal property of a video"
+  # challenge6:
+  #   id: 100
+  #   path: "../challenge6/"
+  #   command: "python3 main.py"
+  #   label: "Challenge 6"
   challenge7:
     id: 5
     path: "../challenge7/"
@@ -34,6 +44,11 @@ challenges:
     path: "../challenge8/"
     command: "go run ."
     label: "Challenge 8 - Get an item for free"
+  # challenge9:
+  #   id: 6
+  #   path: "../challenge9/"
+  #   command: "go run ."
+  #   label: "Challenge 9"
   challenge10:
     id: 7
     path: "../challenge10/"
@@ -44,6 +59,11 @@ challenges:
     path: "../challenge11/"
     command: "go run ."
     label: "Challenge 11 - Make crAPI send an HTTP call to “www.google.com” and return the HTTP response."
+  # challenge12:
+  #   id: 8
+  #   path: "../challenge12/"
+  #   command: "go run ."
+  #   label: "Challenge 12"
   challenge13:
     id: 9
     path: "../challenge13/"
@@ -54,3 +74,8 @@ challenges:
     path: "../challenge14/"
     command: "go run ."
     label: "Challenge 14 - View all orders"
+  # challenge15:
+  #   id: 10
+  #   path: "../challenge15/"
+  #   command: "go run ."
+  #   label: "Challenge 15"
