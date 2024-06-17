@@ -7,25 +7,22 @@ import (
 	"io"
 	"log"
 	"net/http"
-	"os"
 
-	configurator "github.com/tomek-skrond/crapiconfigurator"
+	configurator "github.com/tomek-skrond/crapiconfigurator/v2"
 )
 
 func main() {
-	pwd, _ := os.Getwd()
-	config, err := configurator.GetConfig(pwd + "/config.json")
+	config, err := configurator.GetConfig("../challenge-automation/config.yaml")
 	if err != nil {
 		log.Fatalln(err)
 	}
 
-	// get jwt token
-	token := configurator.GetJWTToken(config.LoginURL, config.Email, config.Password)
-	if token == "" {
-		log.Fatalln("token empty")
-	}
+	loginurl := fmt.Sprintf("%s%s", config.Hostname, config.LoginURL)
+	token := configurator.GetJWTToken(loginurl, config.Email, config.Password)
 
-	SSRF(token, config.TargetURL)
+	url := fmt.Sprintf("%s%s", config.Hostname, config.TargetURL)
+
+	SSRF(token, url)
 }
 
 func SSRF(token, target_url string) {

@@ -5,7 +5,7 @@ import (
 	"log"
 	"net/http"
 
-	configurator "github.com/tomek-skrond/crapiconfigurator"
+	configurator "github.com/tomek-skrond/crapiconfigurator/v2"
 )
 
 func GetAllReportsByID(idCount int, token, target_url string) {

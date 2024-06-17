@@ -8,7 +8,7 @@ import (
 	"log"
 	"net/http"
 
-	configurator "github.com/tomek-skrond/crapiconfigurator"
+	configurator "github.com/tomek-skrond/crapiconfigurator/v2"
 )
 
 type ProductResponse struct {
@@ -20,8 +20,8 @@ type MoneyResponse struct {
 	Credit float64 `json:"credit"`
 }
 
-func GetMoney(token string) float64 {
-	req, err := http.NewRequest("GET", "https://crapi.bobaklabs.com:8443/workshop/api/shop/products", nil)
+func GetMoney(hostname, token string) float64 {
+	req, err := http.NewRequest("GET", fmt.Sprintf("%s/workshop/api/shop/products", hostname), nil)
 	if err != nil {
 		log.Fatalln(err)
 	}
@@ -42,7 +42,7 @@ func GetMoney(token string) float64 {
 
 	return accountBalance.Credit
 }
-func ReturnProduct(product ProductResponse, token string) {
+func ReturnProduct(hostname string, product ProductResponse, token string) {
 	productReturn := map[string]string{
 		"status": "returned",
 	}
@@ -51,7 +51,7 @@ func ReturnProduct(product ProductResponse, token string) {
 		log.Fatalln(err)
 	}
 
-	req, err := http.NewRequest("PUT", fmt.Sprintf("https://crapi.bobaklabs.com:8443/workshop/api/shop/orders/%d", product.ProductID), bytes.NewBuffer(jsonReturn))
+	req, err := http.NewRequest("PUT", fmt.Sprintf("%s/workshop/api/shop/orders/%d", hostname, product.ProductID), bytes.NewBuffer(jsonReturn))
 	if err != nil {
 		log.Fatalln(err)
 	}
@@ -74,7 +74,7 @@ func ReturnProduct(product ProductResponse, token string) {
 
 }
 
-func BuyProduct(token string) (*ProductResponse, error) {
+func BuyProduct(url, token string) (*ProductResponse, error) {
 	productBuy := map[string]int{
 		"product_id": 1, "quantity": 1,
 	}
@@ -84,7 +84,7 @@ func BuyProduct(token string) (*ProductResponse, error) {
 		return nil, err
 	}
 
-	productReq, err := http.NewRequest("POST", "https://crapi.bobaklabs.com:8443/workshop/api/shop/orders", bytes.NewBuffer(jsonBuy))
+	productReq, err := http.NewRequest("POST", url, bytes.NewBuffer(jsonBuy))
 	if err != nil {
 		log.Fatalln(err)
 		return nil, err
@@ -98,7 +98,7 @@ func BuyProduct(token string) (*ProductResponse, error) {
 		return nil, err
 	}
 	defer productResp.Body.Close()
-
+	// fmt.Println(productResp.Body)
 	// fmt.Println(productResp.StatusCode)
 	var product ProductResponse
 	if err := json.NewDecoder(productResp.Body).Decode(&product); err != nil {

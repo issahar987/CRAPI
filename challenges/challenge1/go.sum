@@ -1,2 +1,6 @@
-github.com/tomek-skrond/crapiconfigurator v1.0.1 h1:Es43Rm7e6ltpQI9eVUDya+/huhyIKHCP+J3MekFk4Vc=
-github.com/tomek-skrond/crapiconfigurator v1.0.1/go.mod h1:5srEFPYtNx/Lpfi05JWFK+DRDbn07p/tCySdTdKPAsI=
+github.com/tomek-skrond/crapiconfigurator/v2 v2.2.3 h1:YbaY4viR8NSWF83Tw5IiHyNtK3ucJ0T5QOuqwJcfZMM=
+github.com/tomek-skrond/crapiconfigurator/v2 v2.2.3/go.mod h1:rLRw0ErnI0q6DBD/MdprZmWv5mdWTv7Wkv8zk2ac2IE=
+gopkg.in/check.v1 v0.0.0-20161208181325-20d25e280405 h1:yhCVgyC4o1eVCa2tZl7eS0r+SDo693bJlVdllGtEeKM=
+gopkg.in/check.v1 v0.0.0-20161208181325-20d25e280405/go.mod h1:Co6ibVJAznAaIkqp8huTwlJQCZ016jof/cbN4VW5Yz0=
+gopkg.in/yaml.v2 v2.4.0 h1:D8xgwECY7CYvx+Y2n4sBz93Jn9JRvxdiyyo8CTfuKaY=
+gopkg.in/yaml.v2 v2.4.0/go.mod h1:RDklbk79AGWmwhnvt/jBztapEOGDOx6ZbXqjP6csGnQ=

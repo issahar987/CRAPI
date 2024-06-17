@@ -3,25 +3,25 @@ package main
 import (
 	"fmt"
 	"log"
-	"os"
 
-	configurator "github.com/tomek-skrond/crapiconfigurator"
+	configurator "github.com/tomek-skrond/crapiconfigurator/v2"
 )
 
 func main() {
 
-	pwd, err := os.Getwd()
-	if err != nil {
-		log.Fatalln(err)
-	}
-	config, err := configurator.GetConfig(pwd + "/config.json")
+	// pwd, err := os.Getwd()
+	// if err != nil {
+	// 	log.Fatalln(err)
+	// }
+	config, err := configurator.GetConfig("../challenge-automation/config.yaml")
 	if err != nil {
 		log.Fatalln(err)
 	}
 
-	token := configurator.GetJWTToken(config.LoginURL, config.Email, config.Password)
+	loginurl := fmt.Sprintf("%s%s", config.Hostname, config.LoginURL)
+	token := configurator.GetJWTToken(loginurl, config.Email, config.Password)
 
-	url := config.TargetURL
+	url := fmt.Sprintf("%s%s", config.Hostname, config.TargetURL)
 
 	ids := GetVehicleIDs(url, token)
 

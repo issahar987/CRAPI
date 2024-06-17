@@ -1,6 +1,3 @@
 {
-    "target_url": "http://crapi.bobaklabs.com:8888/community/api/v2/community/posts/recent",
-    "login_url": "http://crapi.bobaklabs.com:8888/identity/api/auth/login",
-    "email": "finger@fingermail.com",
-    "password": "Finger!123"
+    "target_url": "/community/api/v2/community/posts/recent"
 }
