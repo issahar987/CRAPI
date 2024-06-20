@@ -1,6 +1,6 @@
 {
-    "target_url": "http://34.76.82.192:8888/identity/api/v2/user/dashboard",
-    "login_url": "http://34.76.82.192:8888/identity/api/auth/login",
+    "target_url": "http://crapi.bobaklabs.com:8888/identity/api/v2/user/dashboard",
+    "login_url": "http://crapi.bobaklabs.com:8888/identity/api/auth/login",
     "logins": [{
         "email": "test123@test123.pl",
         "password": "Test123$%"

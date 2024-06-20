@@ -1,6 +1,6 @@
 {
-    "target_url": "http://34.76.82.192:8888/workshop/api/merchant/contact_mechanic",
-    "login_url": "http://34.76.82.192:8888/identity/api/auth/login",
+    "target_url": "http://crapi.bobaklabs.com:8888/workshop/api/merchant/contact_mechanic",
+    "login_url": "http://crapi.bobaklabs.com:8888/identity/api/auth/login",
     "logins": [{
         "email": "test123@test123.pl",
         "password": "Test123$%"
@@ -9,7 +9,7 @@
             "mechanic_code":"TRAC_JHN",
             "problem_details":"test123",
             "vin":"5SOPD57LHQF520893",
-            "mechanic_api":"http://34.76.82.192:8888/workshop/api/mechanic/receive_report",
+            "mechanic_api":"http://crapi.bobaklabs.com:8888/workshop/api/mechanic/receive_report",
             "repeat_request_if_failed":true,
             "number_of_repeats":10000
         }
